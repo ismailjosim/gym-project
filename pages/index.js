@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Link from 'next/link'
+import HomeSections from '@/layouts/HomeSections'
 
 export default function Home() {
   return (
@@ -15,7 +12,91 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h3>This is main content</h3>
+        <header>
+          <div className='navbar font-semibold p-0 w-11/12 mx-auto'>
+            <div className='navbar-start'>
+              <Link
+                className='text-2xl font-extrabold uppercase'
+                href='/'
+              >
+                Gym
+              </Link>
+            </div>
+            <div className='navbar-end'>
+              <div className='navbar-center hidden lg:flex'>
+                <ul className='menu menu-horizontal p-0 gap-3'>
+                  <li>
+                    <Link className='hover:text-white hover:bg-primary uppercase font-semibold transition-all duration-500 rounded-lg'
+                      href='/'
+                    >
+                      Home
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div className='dropdown dropdown-bottom dropdown-end'>
+                <label tabIndex={ 0 } className='btn btn-ghost lg:hidden'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth='1.5'
+                    stroke='currentColor'
+                    className='w-6 h-6'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
+                    />
+                  </svg>
+                </label>
+                <ul className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'>
+                  <li>
+                    <Link
+                      className='hover:text-white hover:bg-primary uppercase font-semibold transition-all duration-500 rounded-lg'
+                      href='/'
+                    >
+                      Home
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <HomeSections />
+        <footer className="footer p-10 bg-neutral text-white">
+          <div>
+            <Link href='/' className='text-2xl'>
+              <span className='inline-block bg-white w-16 h-9 text-center rounded-lg shadow-lg text-secondary
+              '>Gym</span>
+              <span> baran</span>
+            </Link>
+            <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+          </div>
+          <div>
+            <span className="footer-title">Services</span>
+            <a className="link link-hover">Branding</a>
+            <a className="link link-hover">Design</a>
+            <a className="link link-hover">Marketing</a>
+            <a className="link link-hover">Advertisement</a>
+          </div>
+          <div>
+            <span className="footer-title">Company</span>
+            <a className="link link-hover">About us</a>
+            <a className="link link-hover">Contact</a>
+            <a className="link link-hover">Jobs</a>
+            <a className="link link-hover">Press kit</a>
+          </div>
+          <div>
+            <span className="footer-title">Legal</span>
+            <a className="link link-hover">Terms of use</a>
+            <a className="link link-hover">Privacy policy</a>
+            <a className="link link-hover">Cookie policy</a>
+          </div>
+        </footer>
+
       </main>
     </>
   )
